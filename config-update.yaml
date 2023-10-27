@@ -2,12 +2,12 @@
 - hosts: servers
   become: true
   tasks:
-    - name: Change port
+    - name: Replace listen 80 with listen {{ portnumber }} in NGINX default config
       copy:
         src: /etc/nginx/sites-enabled/default
         dest: /etc/nginx/sites-enabled/default
 
-    - name: Change HTML page
+    - name: Copy the updated index.html from local to remote
       copy:
         src: /var/www/html/index.nginx-debian.html
         dest: /var/www/html/index.nginx-debian.html
