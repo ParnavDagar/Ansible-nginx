@@ -1,5 +1,7 @@
 # Ansible Playbooks for NGINX Configuration and File Copy
 
+![Alt text](Nginx-updated-port.jpg)
+
 This repository contains Ansible playbooks to perform two operations on a remote machine with an NGINX server:
 
 1. Updating the NGINX configuration to listen on a different port and copying the updated file to remote remote machine.
