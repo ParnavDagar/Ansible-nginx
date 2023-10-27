@@ -1,0 +1,21 @@
+---
+- hosts: servers
+  become: true
+  tasks:
+    - name: Change port
+      copy:
+        src: /etc/nginx/sites-enabled/default
+        dest: /etc/nginx/sites-enabled/default
+
+    - name: Change HTML page
+      copy:
+        src: /var/www/html/index.nginx-debian.html
+        dest: /var/www/html/index.nginx-debian.html
+      notify: restart nginx
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+
